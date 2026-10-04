@@ -1,0 +1,54 @@
+{
+    "name": "notonfire/php",
+    "description": "NotOnFire for Laravel and PHP: error tracking with strict privacy defaults and privacy-friendly analytics, in one package.",
+    "type": "library",
+    "license": "MIT",
+    "keywords": ["notonfire", "laravel", "error-tracking", "analytics", "sentry", "monitoring"],
+    "homepage": "https://notonfire.systems",
+    "support": {
+        "issues": "https://github.com/Not-On-Fire/php/issues",
+        "source": "https://github.com/Not-On-Fire/php"
+    },
+    "require": {
+        "php": "^8.2",
+        "illuminate/support": "^11.0|^12.0|^13.0",
+        "sentry/sentry-laravel": "^4.13"
+    },
+    "require-dev": {
+        "laravel/pint": "^1.18",
+        "orchestra/testbench": "^9.0|^10.0|^11.0",
+        "pestphp/pest": "^3.0|^4.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "NotOnFire\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "NotOnFire\\Tests\\": "tests/"
+        }
+    },
+    "bin": [
+        "bin/notonfire-test"
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "NotOnFire\\Laravel\\NotOnFireServiceProvider"
+            ]
+        }
+    },
+    "scripts": {
+        "test": "pest",
+        "format": "pint"
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}

@@ -1,0 +1,28 @@
+#!/usr/bin/env php
+<?php
+
+/*
+ * Checks a plain PHP install of notonfire/php: shows the settings it finds in
+ * the NOTONFIRE_* environment variables and sends a test event. Laravel
+ * applications use `php artisan notonfire:test` instead.
+ */
+
+$autoloaders = [
+    $GLOBALS['_composer_autoload_path'] ?? null,
+    __DIR__.'/../../../autoload.php',
+    __DIR__.'/../vendor/autoload.php',
+];
+
+foreach ($autoloaders as $autoloader) {
+    if (is_string($autoloader) && is_file($autoloader)) {
+        require $autoloader;
+        break;
+    }
+}
+
+if (! class_exists(NotOnFire\Cli::class)) {
+    fwrite(STDERR, "Composer's autoloader was not found. Run composer install first.\n");
+    exit(1);
+}
+
+exit(NotOnFire\Cli::run(array_slice($argv, 1)));
