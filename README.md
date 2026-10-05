@@ -29,7 +29,7 @@ That is the whole install. The package:
 - adds the analytics tag before `</head>` of every HTML page in the `web`
   middleware group.
 
-Laravel 11, 12 and 13 on PHP 8.2 and later are supported.
+Laravel 12 and 13 on PHP 8.2 and later are supported.
 
 ### What is not configurable
 
